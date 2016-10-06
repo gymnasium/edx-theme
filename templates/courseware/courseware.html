@@ -176,7 +176,7 @@ ${fragment.foot_html()}
   <div class="course-wrapper row">
 
 % if disable_accordion is UNDEFINED or not disable_accordion:
-    <div class="course-index col-sm-3" role="navigation">
+    <div class="course-index col-md-3" role="navigation">
       <header id="open_close_accordion">
         <a href="#">${_("close")}</a>
       </header>
@@ -193,7 +193,7 @@ ${fragment.foot_html()}
     </div>
 % endif
 
-    <section class="course-contents col-sm-9" id="course-content">
+    <section class="course-content col-md-9" id="course-content">
       ${fragment.body_html()}
     </section>
   </div>

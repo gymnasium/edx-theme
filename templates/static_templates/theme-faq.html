@@ -1,5 +1,6 @@
 <%! from django.utils.translation import ugettext as _ %>
 <%inherit file="../main.html" />
+<% import urllib2 %>
 
 <%block name="pagetitle">${_("FAQ")}</%block>
 <div class="container ">
@@ -8,85 +9,7 @@
       <div class="white-panel">
         <div class="row">
           <div class="col-md-9">
-            <h1>FAQ</h1>
-            <ul>
-            <li>
-            <h2>How Much Do Courses Cost?</h2>
-            <p>Every class is free. That’s right — no hidden fees. No ‘freemium’ upgrade offers. All of our classes are absolutely free of charge. Sign up. Sign in. Learn and succeed. For free.</p>
-            </li>
-            <li>
-            <h2>Do I Need To Buy Any Books?</h2>
-            <p>No, you’re not required to purchase books for any Gymnasium courses. (When we say our courses are free, we really mean it!). Your required reading consists of free online content. Any books recommended by the instructors are optional.</p>
-            </li>
-            <li>
-            <h2>What Courses Are You Offering?</h2>
-            <p>Have a look at our current and upcoming Gymnasium courses in the <a href="/courses">course catalog</a>.</p>
-            </li>
-            <li>
-            <h2>What’s A Gym Short?</h2>
-            <p>Gym Shorts are, for lack of a better word, merely shorter versions of full Gymnasium courses. Shorts are an hour or less of video instruction and involve no exams, quizzes, or assignments. Because there’s no final exam, you won’t get a certificate for completion. You will, though, have the satisfaction that you learned something amazing and useful during your lunch hour.</p>
-            </li>
-            <li>
-            <h2>How Can I Tell If A Course Is Right For Me?</h2>
-            <p>All Gymnasium courses are designed to help you succeed. The <a href="/courses">course catalog</a> is the best place to start: it’s chock full of information, including the entire video for the first lesson of each course. If you’re still unsure, just enroll <i>(remember: it’s <strong>free</strong>)</i> and take the optional Assessment Quiz in the Get Started section. Scoring 70% or better means the course is probably right for you. Even if you score lower than that you can still take the course, though you might have to work harder to succeed.</p>
-            </li>
-            <li>
-            <h2>How Long Are You Offering Each Course?</h2>
-            <p>Gymnasium courses are open indefinitely and available 24/7. However, due to the rapidly evolving nature of the technologies we teach, classes may be updated, replaced, or retired.</p>
-            </li>
-            <li>
-            <h2>How Long Will It Take To Finish A Course?</h2>
-            <p>The pace for completing Gymnasium courses is entirely up to you. Full courses generally include 5-6 hours of video instruction, plus assignments, quizzes, and a final exam. Gym Shorts are an hour or less of video instruction with no assignments or quizzes.</p>
-            </li>
-            <li>
-            <h2>Will I Be Able To See What Questions I Miss On The Quizzes?</h2>
-            <p>Yes, you’ll get feedback, including the correct answers, for quizzes you take while completing any course.</p>
-            </li>
-            <li>
-            <h2>Will I Receive A Grade At The End Of Each Course?</h2>
-            <p>No, we don’t give final grades for Gymnasium courses, even though individual quizzes and assessments are graded. You will receive a certificate of excellence if you complete the course and score 85% or better on the final exam.</p>
-            </li>
-            <li>
-            <h2>How Do I Get My Certificate?</h2>
-            <p>You will receive a Certificate of Excellence (issued by Aquent Gymnasium and Accredible) if you score 85% or better on the final exam. Certificates can be located on your <a href="/dashboard">Dashboard</a>.</p>
-            </li>
-            <li>
-            <h2>How Do I Unenroll From A Course?</h2>
-            <p>Just click the “Unenroll” link for the course on your <a href="/dashboard">Dashboard</a>. Boom!</p>
-            </li>
-            <li>
-            <h2>What Happens In The Forum?</h2>
-            <p>Think of the Forum as a gathering spot for students, where you can post, share, and receive critiques of your coursework from your fellow students, as well as our TAs. Specific courses may require students to post assignments for feedback and provide feedback to fellow students in the Forums.</p>
-            </li>
-            <li>
-            <h2>Will I Get To Interact With The Instructor?</h2>
-            <p>We try to have support available during the times you’re taking our courses, but are not available 24/7. If your question is related to course material, homework, or your understanding of a concept, check out the forums. There you’ll find other students and teaching assistants eager to share their knowledge. You can also leave a message for our support team or email us.</p>
-            </li>
-            <li>
-            <h2>How Do I Change The Email Address On My Account?</h2>
-            <p>It’s easy! Go to your student profile on the left-hand side of the <a href="/dashboard">Dashboard</a>. Use the “edit” link next to “EMAIL” and enter the your email address. We’ll confirm by sending emails to your existing and new addresses.</p>
-            </li>
-            <li>
-            <h2>How Do I Change The Password On My Account?</h2>
-            <p>Easily! Go to your student profile on the left-hand side of the <a href="/dashboard">Dashboard</a>. Click “Reset Password” and we’ll email you a link to reset your password.</p>
-            </li>
-            <li>
-            <h2>How Can I Delete My Account?</h2>
-            <p>We understand, but we do hate to see you go. Send an email to <b>help@thegymnasium.com</b> and we’ll take care of everything for you.</p>
-            </li>
-            <li>
-            <h2>Where Can I Get Help If I Hit A Snag?</h2>
-            <p>It depends on the snag. For anything course-related, you should post to the Forum, where fellow students and course TAs can provide help. For non-course related questions (technical or otherwise), click on the <b>?</b> icon on the lower right side of the screen or email <b><b>help@thegymnasium.com</b></b>. We are usually able to respond to all questions within a few hours.</p>
-            </li>
-
-						<li>
-	            <h2>What technologies does gymnasium use?</h2>
-	            <p>
-								Quite a few, as it turns out! The simplest answer is that Gymnasium is built on the open source platform <a href="http://openedx.org/" target="_blank">Open EdX</a>. You can access the custom code we use to run Gymnasium on <a href="http://www.github.com/gymnasium/" target="_blank">GitHub</a>.
-							</p>
-            </li>
-
-            </ul>
+            ${urllib2.urlopen('https://raw.githubusercontent.com/gymnasium/static-site-content/gh-pages/faq.html').read()}
           </div>
           <div class="col-md-3">
             <%include file="theme-upcoming-content.html" />

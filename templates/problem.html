@@ -4,7 +4,7 @@
 <h2 class="problem-header">
   ${ problem['name'] }
 </h2>
-<div class="problem-progress" id="problem-grade"></div>
+<div class="problem-progress"></div>
 
 <div class="passed_modal hidden final-exam-status" aria-hidden="true" id="course_passed_message">
   <div class="row">
@@ -125,8 +125,6 @@
       {
         clearInterval(progress_status_check);
         show_problem_progress();
-        //set focus to the grade (which is just above the message we display)
-        $(window).scrollTop($('#problem-grade').offset().top);
       }
     }
 

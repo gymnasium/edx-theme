@@ -1,7 +1,26 @@
 <%! from django.utils.translation import ugettext as _ %>
 <%inherit file="../main.html" />
+<% import urllib2 %>
 
 <%block name="pagetitle">${_("About")}</%block>
+
+<!--
+Start of DoubleClick Floodlight Tag: Please do not remove
+Activity name of this tag: Gymnasium_About
+URL of the webpage where the tag is expected to be placed: http://gymnasium.aquent.com/about
+This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+Creation Date: 12/02/2015
+-->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5255816;type=count0;cat=gymna000;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5255816;type=count0;cat=gymna000;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+
 
 <div class="container ">
 	<div class="row">
@@ -9,19 +28,7 @@
       <div class="white-panel">
         <div class="row">
           <div class="col-md-9">
-            <h1>About</h1>
-            <iframe width="100%" height="425" src="https://www.youtube.com/embed/snmz3M2RUBo" frameborder="0" allowfullscreen></iframe>
-
-            <h1>Why Aquent Gymnasium?</h1>
-            <h2>We created Aquent Gymnasium to bridge the skills gap.</h2>
-
-            <p>The skills gap is getting in the way.</p>
-
-            <p>It prevents companies from engaging customers across devices and taking advantage of emerging technologies.</p>
-
-            <p>It also prevents digital, creative, and communications professionals from producing great work, delivering results and advancing their careers.</p>
-
-            <p>Aquent Gymnasium bridges the skills gap by taking what we've learned from our clients and developing free, online courses that teach digital designers and front-end developers today's most in demand skills.</p>
+            ${urllib2.urlopen('https://raw.githubusercontent.com/gymnasium/static-site-content/gh-pages/about.html').read()}
           </div>
 
           <div class="col-md-3">

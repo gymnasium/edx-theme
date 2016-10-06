@@ -44,29 +44,31 @@ $(document).ready(function(){
 
 <%block name="bodyclass">${course.css_class or ''}</%block>
 <section class="container">
-  <div class="info-wrapper">
-    % if user.is_authenticated():
-    <section class="updates">
-      % if studio_url is not None and masquerade and masquerade.role == 'staff':
-        <div class="wrap-instructor-info studio-view">
-          <a class="instructor-info-action" href="${studio_url}">${_("View Updates in Studio")}</a>
-        </div>
-      % endif
+  <div class="row">
+    <div class="info-wrapper">
+      % if user.is_authenticated():
+      <section class="updates">
+        % if studio_url is not None and masquerade and masquerade.role == 'staff':
+          <div class="wrap-instructor-info studio-view">
+            <a class="instructor-info-action" href="${studio_url}">${_("View Updates in Studio")}</a>
+          </div>
+        % endif
 
-      ${get_course_info_section(request, course, 'updates')}
-    </section>
-    <section aria-label="${_('Handout Navigation')}" class="handouts">
-      <h1>${_(course.info_sidebar_name)}</h1>
-      ${get_course_info_section(request, course, 'handouts')}
-    </section>
-    % else:
-    <section class="updates">
-      ${get_course_info_section(request, course, 'guest_updates')}
-    </section>
-    <section aria-label="${_('Handout Navigation')}" class="handouts">
-      <h1>${_("Course Handouts")}</h1>
-      ${get_course_info_section(request, course, 'guest_handouts')}
-    </section>
-    % endif
+        ${get_course_info_section(request, course, 'updates')}
+      </section>
+      <section aria-label="${_('Handout Navigation')}" class="handouts">
+        <h1>${_(course.info_sidebar_name)}</h1>
+        ${get_course_info_section(request, course, 'handouts')}
+      </section>
+      % else:
+      <section class="updates">
+        ${get_course_info_section(request, course, 'guest_updates')}
+      </section>
+      <section aria-label="${_('Handout Navigation')}" class="handouts">
+        <h1>${_("Course Handouts")}</h1>
+        ${get_course_info_section(request, course, 'guest_handouts')}
+      </section>
+      % endif
+    </div>
   </div>
 </section>

@@ -83,8 +83,6 @@ site_status_msg = get_site_status_msg(course_id)
       </div>
     </nav>
 
-
-
     <nav id="secondary-nav" class="container-fluid">
 
       <div class="container">
@@ -137,10 +135,22 @@ site_status_msg = get_site_status_msg(course_id)
           </div>
         </div>
       </div>
-
-
-
     </nav>
+
+    <div class="wrapper-msg urgency-high" id="browserWarning" style="display:none;">
+        <div class="msg">
+            <div class="msg-content">
+                <h1>Improve your Gymnasium experience</h1>
+                <div class="copy">
+                    <p>It looks like you’re using an unsupported browser. To get the most out of your Gymnasium experience, we recommend that you use
+                      <a href="https://www.google.com/chrome/index.html" target="_blank">Chrome</a>,
+                      <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>, or
+                      <a href="http://www.apple.com/safari/" target="_blank">Safari</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
   </header>
 % if course:
 <!--[if lte IE 8]>

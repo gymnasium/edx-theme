@@ -33,7 +33,9 @@ def url_class(is_active):
       <img src="${course_image_url(course)}" hidden class="hidden" id="course-image" />
       <div class="container-fluid" id="course-title-header">
         <div class="container">
-          <h1><span class="provider">${course.display_name_with_default}</span></h1>
+          <div class="row">
+            <h1><span class="provider">${course.display_name_with_default}</span></h1>
+          </div>
         </div>
       </div>
     % endif
@@ -65,28 +67,30 @@ def url_class(is_active):
     % endif
 
     <div class="container">
-      <ol class="course-tabs">
-        % for tab in get_course_tab_list(course, user):
-          <%
-              tab_is_active = (tab.tab_id == active_page) or (tab.tab_id == default_tab)
-              tab_image = notification_image_for_tab(tab, user, course)
-          %>
-            <li>
-               <a href="${tab.link_func(course, reverse) | h}" class="${url_class(tab_is_active)}">
-                   <b>${_(tab.name) | h}</b>
-                   % if tab_is_active:
-                     <span class="sr">, current location</span>
-                   %endif
-                   % if tab_image:
-                     ## Translators: 'needs attention' is an alternative string for the
-                     ## notification image that indicates the tab "needs attention".
-                     <img src="${tab_image}" alt="${_('needs attention')}" />
-                   %endif
-               </a>
-            </li>
-        % endfor
-        <%block name="extratabs" />
-      </ol>
+      <div class="row">
+        <ol class="course-tabs">
+          % for tab in get_course_tab_list(course, user):
+            <%
+                tab_is_active = (tab.tab_id == active_page) or (tab.tab_id == default_tab)
+                tab_image = notification_image_for_tab(tab, user, course)
+            %>
+              <li>
+                 <a href="${tab.link_func(course, reverse) | h}" class="${url_class(tab_is_active)}">
+                     <b>${_(tab.name) | h}</b>
+                     % if tab_is_active:
+                       <span class="sr">, current location</span>
+                     %endif
+                     % if tab_image:
+                       ## Translators: 'needs attention' is an alternative string for the
+                       ## notification image that indicates the tab "needs attention".
+                       <img src="${tab_image}" alt="${_('needs attention')}" />
+                     %endif
+                 </a>
+              </li>
+          % endfor
+          <%block name="extratabs" />
+        </ol>
+      </div>
     </div>
   </div>
 </nav>

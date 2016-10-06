@@ -99,6 +99,14 @@
 		}
 	}
 
+  .how-gymnasium-works
+  {
+    p
+    {
+      font-size: 1.3em;
+      line-height: 1.4em;
+    }
+  }
 
 	.container#get-work
 	{
@@ -221,11 +229,11 @@
 			h1
 			{
 				display: inline-block;
-			    font-size: 1em;
+			    font-size: 1.75em;
 			    line-height: 1.2;
 			    text-transform: uppercase;
 			    vertical-align: 1.2em;
-			    margin-top: -1.8em;
+			    margin-top: -1.5em;
 					text-align:center;
 			}
 		}
@@ -434,12 +442,38 @@
 		font-weight: normal;
 	}
 
+  .highlighted-courses
+  {
+
+    padding-top:3em;
+
+    .header-tab
+    {
+      border-top: 2px solid #ccc;
+
+      h1
+      {
+        position: relative;
+        top: -.75em;
+        background: #ebebeb;
+        margin-bottom: -.75em;
+      }
+    }
+  }
+
 	.courses
 	{
 
+    #view-all-courses
+    {
+      font-size:1.5em;
+      padding:0.5em;
+      margin-top:1em;
+    }
+
 		.gym-course a:hover
 		{
-			text-decoration:none;
+			text-decoration:underline;
 		}
 
 		padding-top:0px;
@@ -451,6 +485,9 @@
 
 		.course-list-item
 		{
+
+      margin-bottom:1.5em;
+
 			h2
 			{
 				color:$gym-medium-grey;
@@ -466,10 +503,24 @@
 				}
 			}
 
-			.course-preview h2
-			{
-				height:4em;
-			}
+			.course-preview
+      {
+        background: $gym-medium-grey;
+        padding:1em;
+        margin-top:0;
+
+        h2
+  			{
+  				height:4.5em;
+          color: $gym-orange;
+          text-align: left;
+          margin:0;
+          padding:0;
+          text-transform:uppercase;
+          font-weight:bolder;
+          font-size:16pt;
+  			}
+      }
 		}
 
 		p
@@ -484,4 +535,95 @@
 {
   position:absolute;
   bottom:0px;
+}
+
+
+#get-work
+{
+
+  .header-tab
+  {
+    height:2.5em;
+  }
+
+  .tagline
+  {
+    margin-bottom:1em;
+
+    h2
+    {
+      margin-top:0;
+      padding-top:0;
+      font-weight: normal;
+    }
+  }
+
+  .viewing-jobs-in
+  {
+    margin-top:1.5em;
+    font-weight:bold;
+    font-size:14pt;
+  }
+
+  select#market
+  {
+    margin-top:0.5em;
+    color:black;
+  }
+
+  ul#find-jobs-job-list
+  {
+    margin-top:1em;
+    border-top:2px solid #777;
+    list-style:none;
+    padding:0;
+
+    li
+    {
+      padding:1.5em 2em;
+      border-bottom:2px solid #777;
+
+      a
+      {
+        font-size:17pt;
+        margin-top:0.5em;
+        margin-bottom:0.5em;
+
+        padding-top:0.5em;
+        padding-bottom:0.5em;
+
+        .job-title
+        {
+          color:$gym-orange;
+        }
+
+        .job-market
+        {
+          font-size:12pt;
+          font-style:normal;
+          font-weight: bold;
+
+        }
+      }
+      a:hover,
+      a:active,
+      a:hover:active
+      {
+        .job-title,
+        .job-market
+        {
+          text-decoration: underline;
+        }
+
+      }
+    }
+  }
+
+  .view-all-jobs
+  {
+    margin-top:1.5em;
+    color:$gym-orange;
+    font-size:16pt;
+    font-weight:bold
+  }
 }

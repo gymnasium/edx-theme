@@ -33,11 +33,18 @@ body.courseware
 
 }
 
-#content header.course-profile
+#content
 {
-	margin-top:10px;
+  #course-content.course-content
+  {
+    max-width: inherit;
+    width: 66.66666667%;;
+  }
+  header.course-profile
+  {
+  	margin-top:10px;
+  }
 }
-
 .container
 {
 	div.info-wrapper section.updates>ol>li h2,
@@ -63,6 +70,14 @@ body.courseware
 		#course-title-header
 		{
 			background-color:$gym-light-gray;
+
+      div.row
+      {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+      }
 
 			h1
 			{
@@ -260,7 +275,7 @@ nav.progress.wrapper-course-material
 }
 
 /** strange specificity here to get past existing style rules, sadly **/
-.container>div.info-wrapper
+.container div.info-wrapper
 {
 	border:none;
 	border-radius:2px;
@@ -276,6 +291,7 @@ nav.progress.wrapper-course-material
 	{
 		font-size:12pt;
 		border-right:1px dashed #ccc;
+    background-color:$gym-light-color;
 
 		section
 		{
@@ -355,6 +371,8 @@ nav.progress.wrapper-course-material
 		border-radius:0;
 		padding:0px 20px;
 		border-left:none;
+    background-color: $gym-light-color;
+
 		h1
 		{
 			padding:10px 0 0px 0;

@@ -600,6 +600,7 @@ body a:focus,
 	{
 		height:76px;
 		margin-top:-10px;
+    margin-left:5px;
 	}
 
 	a:hover
@@ -607,10 +608,14 @@ body a:focus,
 		color:$gym-orange;
 	}
 
-	a.gym-button:hover
+	a.gym-button:hover,
+  a.gym-button:active,
+  a.gym-button:active:hover
 	{
 		background-color:transparentize($gym-orange,0.25);
 		color:$gym-button-hover-color;
+    box-shadow: none;
+
 	}
 
 
@@ -718,6 +723,7 @@ header.global,
 		{
 			height:50px;
 			margin-top:15px;
+      margin-left:5px;
 		}
 		.edx-logo
 		{
@@ -1180,4 +1186,17 @@ code, code *
 	{
 		color:$gym-light-grey;
 	}
+}
+
+/* negate a silly style rule inherited from the platform */
+html
+{
+  .container>div,
+  .home .container.grey.div
+  {
+    border-radius: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
 }

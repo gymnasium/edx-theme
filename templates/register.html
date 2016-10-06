@@ -35,6 +35,20 @@
         $('#page-subtitle').text("Please complete the following required information to reactivate your Gymnasium account.");
         $('#submit b').text("ACTIVATE NOW");
         $('#email-tip').html("<b>Note</b>: if you need to change your email address, please do that after you've reactivated your account.");
+
+
+        //hackhack
+        window.intercomSettings = {
+          //  The current logged in user's full name
+          //  The current logged in user's email address.
+          email: $('#email').val(),
+          created_at: Math.round((new Date()).getTime() / 1000),
+          //  The current logged in user's sign-up date as a Unix timestamp.
+          app_id: "oej77pbg"
+        };
+
+        Intercom('trackEvent', 'reactivated-legacy-account');
+
       }
 
       // adding js class for styling with accessibility in mind
@@ -347,3 +361,54 @@
     </div>
   </div>
 </div>
+
+<!-- script to automatically fill out reg form -->
+<script>
+$(function() { // http://example.com?auto-reg&email=abc@aol.com&name=first%20last&market=Boston
+    var split = window.location.href.split('?');
+    var queryParams = split[split.length-1];
+
+    var email, name, market;
+    if (queryParams.indexOf('auto-reg') > -1) {
+        var segs = queryParams.split('&');
+
+        var x;
+        for(x=0; x< segs.length; x++) {
+            var segment = segs[x];
+
+            if(segment.indexOf('email') > -1) {
+                email = segment.split('=')[1];
+                email = window.decodeURI(email);
+            }
+
+            if(segment.indexOf('name') > -1) {
+                name = segment.split('=')[1];
+                name = window.decodeURI(name);
+            }
+
+            if(segment.indexOf('market') > -1) {
+                market = segment.split('=')[1];
+                market = window.decodeURI(market);
+            }
+        }
+
+        //email field is disabled if present in querystring
+        if(email) {
+            $('input#email').val(email);
+            $('input#email').prop('readonly',true);
+        }
+
+        if(name) {
+            $('input#name').val(name);
+        }
+
+        if(market) {
+            //$('select#market').val(market);
+            $('select#market option').filter(function() {
+                return this.text == market;
+            }).attr('selected',true);
+        }
+    }
+})
+
+</script>
