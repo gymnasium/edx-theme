@@ -310,6 +310,7 @@ $register-banner-image: none;
 @import 'register';
 @import 'tertiary_navigation';
 @import 'system_status';
+@import 'urls';
 
 @import 'prism'; //used for prism.js syntax highlighting
 
@@ -361,6 +362,15 @@ body.register,
 .container
 {
 	min-width:0px !important;
+}
+
+body,
+body.view-in-course
+{
+  div.window-wrap
+  {
+    min-width:inherit;
+  }
 }
 
 #primary-nav, #secondary-nav, .wrapper-footer

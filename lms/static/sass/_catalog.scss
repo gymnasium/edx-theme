@@ -124,6 +124,11 @@
 
 	.course-item
 	{
+    figure {
+      img {
+        width:100%;
+      }
+    }
 		figcaption
 		{
 			background: #444;

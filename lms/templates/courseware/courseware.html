@@ -116,7 +116,7 @@ ${HTML(fragment.foot_html())}
     <div class="course-wrapper">
 
       % if disable_accordion is UNDEFINED or not disable_accordion:
-          <div class="col-md-3 no-right-pad">
+          <div class="col-sm-3 no-right-pad">
             <div class="course-index">
               <div class="wrapper-course-modes">
 
@@ -141,7 +141,7 @@ ${HTML(fragment.foot_html())}
           </div>
       % endif
 
-      <section class="col-md-9 no-left-pad">
+      <section class="col-sm-9 no-left-pad">
         <div class="course-content" id="course-content">
           <main id="main" aria-label="Content" tabindex="-1">
             % if getattr(course, 'entrance_exam_enabled') and \
