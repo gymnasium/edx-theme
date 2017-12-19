@@ -1,21 +1,30 @@
-<!-- OLD is below --> 
-<li class="course-item" data-course-id="<%- content.number %>">          
-    <article class="row">
-        <figure class="col-md-4">
-            <a href="<%- content.number %>">
-                <img class="img-responsive" src="<%- image_url %>" alt="<%- content.display_name %> Cover Image" />
-            </a>
-            <figcaption>
-                <a href="/courses/<%- course %>/about" class="gym-button"><b>Learn More</b></a>
-            </figcaption>
-        </figure>
-        <div class="col-md-8 course-description">
-            <header>
-                <h1><%- content.display_name %></h1>
-            </header>
-            <p>
-                <%- content.short_description %>
-            </p>
+<article class="course" role="region" aria-label="<%- content.display_name %>">
+    <a href="/courses/<%- course %>/about">
+        <header class="course-image">
+            <div class="cover-image">
+                <img src="<%- image_url %>" alt="<%- content.display_name %> <%- content.number %>" />
+                <div class="learn-more" aria-hidden="true">GYMNASIUM TEMPLATE/div>
+            </div>
+        </header>
+        <section class="course-info" aria-hidden="true">
+            <h2 class="course-name">
+                <span class="course-organization"><%- org %></span>
+                <span class="course-code"><%- content.number %></span>
+                <span class="course-title"><%- content.display_name %></span>
+            </h2>
+            <div class="course-date" aria-hidden="true">
+                <%- interpolate(
+                      gettext("Starts: %(start_date)s"),
+                      { start_date: start }, true
+                    ) %>
+            </div>
+        </section>
+        <div class="sr">
+            <ul>
+                <li><%- org %></li>
+                <li><%- content.number %></li>
+                <li><%- gettext("Starts") %><time itemprop="startDate" datetime="<%- start %>"><%- start %></time></li>
+            </ul>
         </div>
-    </article>
-</li>
+    </a>
+</article>

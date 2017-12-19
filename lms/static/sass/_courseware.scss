@@ -737,3 +737,34 @@ html
 		 }
 	 }
 }
+
+
+/** rules for courseware navigation **/
+.sequence-nav {
+	justify-content: center;
+}
+
+.xmodule_display.xmodule_SequenceModule .sequence-nav {
+
+	button.sequence-nav-button:hover:not(:disabled) {
+		&.button-previous {
+			border-top-left-radius: 3px;
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 3px;
+		}
+
+		&.button-next {
+			border-top-left-radius: 0;
+			border-top-right-radius: 3px;
+			border-bottom-right-radius: 3px;
+			border-bottom-left-radius: 0;
+		}
+
+		border: 1px solid rgb(200,200,200);
+		border-bottom: 3px solid #0075b4;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(0, 117, 180);
+	}
+}
