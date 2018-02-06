@@ -31,49 +31,77 @@ course_discovery_enabled = settings.FEATURES.get('ENABLE_COURSE_DISCOVERY')
 <%block name="pagetitle">${_("Courses")}</%block>
 
 <main id="main" aria-label="Content" tabindex="-1">
-  <section class="find-courses">
-    <section class="courses-container">
-      % if course_discovery_enabled:
-      <div id="discovery-form" role="search" aria-label="course" class="wrapper-search-context">
-        <div id="discovery-message" class="search-status-label"></div>
-        <form class="wrapper-search-input">
-          <label for="discovery-input" class="sr">${_('Search for a course')}</label>
-          <input id="discovery-input" class="discovery-input" placeholder="${_('Search for a course')}" type="text"/>
-          <button type="submit" class="button postfix discovery-submit" title="${_('Search')}">
-            <span class="icon fa fa-search" aria-hidden="true"></span>
-            <div aria-live="polite" aria-relevant="all">
-              <div id="loading-indicator" class="loading-spinner hidden">
-                <span class="icon fa fa-spinner fa-spin" aria-hidden="true"></span>
-                <span class="sr">${_('Loading')}</span>
-              </div>
-            </div>
-          </button>
-        </form>
-      </div>
-
-      <div id="filter-bar" class="filters hide-phone is-collapsed">
-      </div>
-      % endif
-
-      <div class="courses${'' if course_discovery_enabled else ' no-course-discovery'}" role="region" aria-label="${_('List of Courses')}">
-        <ul class="courses-listing">
-          %for course in courses:
-          <li class="courses-listing-item">
-            <%include file="../course.html" args="course=course" />
+  <section class="find-courses course-overview">
+    <div class="course-title">
+      <header class="container">
+        <div class="row">
+          <h1 class="col-xs-12">Catalog</h1>
+        </div>
+      </header>
+    </div>
+    <div class="container course-menu">
+      <div class="row">
+        <ul class="col-xs-12">
+          <li>
+            <a href="#full">Full Courses</a>
           </li>
-          %endfor
+          <li>
+            <a href="#gymshorts">Gym Shorts</a>
+          </li>
         </ul>
       </div>
+    </div>
+
+    <main id="main" class="container" aria-label="Content" tabindex="-1">
+      <div class="catalog-content row">
+        <div class="col-md-9 course-overview">
+          <section class="courses-container">
+            % if course_discovery_enabled:
+            <div id="discovery-form" role="search" aria-label="course" class="wrapper-search-context">
+              <div id="discovery-message" class="search-status-label"></div>
+              <form class="wrapper-search-input">
+                <label for="discovery-input" class="sr">${_('Search for a course')}</label>
+                <input id="discovery-input" class="discovery-input" placeholder="${_('Search for a course')}" type="text"/>
+                <button type="submit" class="button postfix discovery-submit" title="${_('Search')}">
+                  <span class="icon fa fa-search" aria-hidden="true"></span>
+                  <div aria-live="polite" aria-relevant="all">
+                    <div id="loading-indicator" class="loading-spinner hidden">
+                      <span class="icon fa fa-spinner fa-spin" aria-hidden="true"></span>
+                      <span class="sr">${_('Loading')}</span>
+                    </div>
+                  </div>
+                </button>
+              </form>
+            </div>
+
+            <div id="filter-bar" class="filters hide-phone is-collapsed">
+            </div>
+            % endif
+
+            <div class="courses${'' if course_discovery_enabled else ' no-course-discovery'}" role="region" aria-label="${_('List of Courses')}">
+              <ul class="courses-listing">
+                %for course in courses:
+                <li class="courses-listing-item">
+                  <%include file="../course.html" args="course=course" />
+                </li>
+                %endfor
+              </ul>
+            </div>
 
 
-      % if course_discovery_enabled:
-      <aside aria-label="${_('Refine Your Search')}" class="search-facets phone-menu">
-        <h2 class="header-search-facets">${_('Refine Your Search')}</h2>
-        <section class="search-facets-lists">
-        </section>
-      </aside>
-      % endif
+            % if course_discovery_enabled:
+            <aside aria-label="${_('Refine Your Search')}" class="search-facets phone-menu">
+              <h2 class="header-search-facets">${_('Refine Your Search')}</h2>
+              <section class="search-facets-lists">
+              </section>
+            </aside>
+            % endif
 
-    </section>
+          </section>
+        </div>
+        <div clas="col-md-3 sidebar">
+        </div>
+      </div>
+    </main>
   </section>
 </main>
