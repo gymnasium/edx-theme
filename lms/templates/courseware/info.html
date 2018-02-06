@@ -71,7 +71,7 @@ from openedx.core.djangolib.markup import HTML, Text
       </div>
       <div class="info-wrapper">
         % if user.is_authenticated():
-        <section class="updates">
+        <section class="updates" id="updates">
           % if studio_url is not None and masquerade and masquerade.role == 'staff':
           <div class="wrap-instructor-info studio-view">
             <a class="instructor-info-action" href="${studio_url}">
@@ -94,7 +94,7 @@ from openedx.core.djangolib.markup import HTML, Text
           ${HTML(get_course_info_section(request, masquerade_user, course, 'handouts'))}
         </section>
         % else:
-        <section class="updates">
+        <section class="updates" id="updates">
           <h1 class="handouts-header">${_("Course Updates and News")}</h1>
           ${HTML(get_course_info_section(request, masquerade_user, course, 'guest_updates'))}
         </section>

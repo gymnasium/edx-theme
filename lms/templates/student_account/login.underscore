@@ -83,9 +83,9 @@
 
 <div class="toggle-form course-content logistration-bottom">
     <div class="section-title">
-        <h2>
+        <h1>
             <span class="text"><%- _.sprintf( gettext("New to %(platformName)s?"), context ) %></span>
-        </h2>
+        </h1>
     </div>
     <button class="gym-button form-toggle logistration-button" data-type="register"><%- gettext("Create an account") %></button>
 </div>

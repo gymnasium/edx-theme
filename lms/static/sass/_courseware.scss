@@ -1,3 +1,9 @@
+#updates {
+	a, a:visited, a:link {
+		color: $gym-orange;
+	}
+}
+
 .sequence-nav,
 .sequence-bottom,
 {
@@ -14,13 +20,6 @@ body.view-in-course
     margin: 0;
 	}
 
-  .wrapper-course-material
-  {
-    div.course-material
-    {
-      padding:0;
-    }
-  }
   div.wrapper-footer
   {
     margin-top:0;
