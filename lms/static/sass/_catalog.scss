@@ -25,6 +25,22 @@
 		color:#444;
 	}
 
+	.discovery-form {
+		form.wrapper-search-input {
+			width: 100%;
+		}
+	}
+
+	.filters {
+		li {
+			padding: none;
+			background: none;
+		}
+		button {
+			text-transform: uppercase;
+		}
+	}
+
 	.course-menu
 	{
 
@@ -76,8 +92,10 @@
 		.courses-container
 		{
 			width:100%;
+			padding: 0;
 
 			div.courses {
+				padding: 0;
 				width:100% !important;
 				ul.courses-listing{
 					width:100% !important;
@@ -95,9 +113,8 @@
 	    color: $gym-dark-grey;
 	    letter-spacing: .04em;
 	    word-spacing: .05em;
-	    text-transform: uppercase;
-	    padding-top: 1em;
-	    margin-top: -1.1em;
+			text-transform: uppercase;
+			margin: 0;
 		}
 
 		p.hero
@@ -184,7 +201,6 @@
 
 		article
 		{
-			padding-bottom:3em;
 			overflow:hidden;
 		}
 	}

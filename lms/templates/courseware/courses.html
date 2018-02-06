@@ -7,6 +7,7 @@ from openedx.core.djangolib.js_utils import dump_js_escaped_json
 <%
 course_discovery_enabled = settings.FEATURES.get('ENABLE_COURSE_DISCOVERY')
 %>
+<% import urllib2 %>
 
 <%namespace name='static' file='../static_content.html'/>
 
@@ -31,7 +32,7 @@ course_discovery_enabled = settings.FEATURES.get('ENABLE_COURSE_DISCOVERY')
 <%block name="pagetitle">${_("Courses")}</%block>
 
 <main id="main" aria-label="Content" tabindex="-1">
-  <section class="find-courses course-overview">
+  <section class="find-courses">
     <div class="course-title">
       <header class="container">
         <div class="row">
@@ -73,20 +74,30 @@ course_discovery_enabled = settings.FEATURES.get('ENABLE_COURSE_DISCOVERY')
                 </button>
               </form>
             </div>
-
             <div id="filter-bar" class="filters hide-phone is-collapsed">
             </div>
             % endif
 
+            <h1 id="full">
+              Full Courses
+            </h1>
+            <p class="hero">
+              All our full courses are taught by experienced practitioners and focused on in-demand skills and technologies. Each includes 3 to 6 hours of video instruction, quizzes, assignments, a final exam, and certification when you pass!
+            </p>
             <div class="courses${'' if course_discovery_enabled else ' no-course-discovery'}" role="region" aria-label="${_('List of Courses')}">
               <ul class="courses-listing">
                 %for course in courses:
-                <li class="courses-listing-item">
                   <%include file="../course.html" args="course=course" />
-                </li>
                 %endfor
               </ul>
             </div>
+
+            <h1 id="gymshorts">
+              Gym Shorts
+            </h1>
+            <p class="hero">
+              Gym Shorts are short, snackable courses that all last under an hour. Like our longer courses, they are practical, taught by experienced practitioners, and focused on in-demand skills and technologies.
+            </p>
 
 
             % if course_discovery_enabled:
