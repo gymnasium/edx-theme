@@ -1,6 +1,7 @@
 ## mako
 <%namespace name='static' file='static_content.html'/>
 <%namespace file='main.html' import="login_query"/>
+<%namespace name='gymcms' file='./util/gymcms.mako' />
 <%!
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
@@ -11,7 +12,7 @@ import branding
 from status.status import get_site_status_msg
 %>
 
-<% import urllib2 %>
+<% import json %>
 
 ## Provide a hook for themes to inject branding on top.
 <%block name="navigation_top" />
@@ -148,11 +149,7 @@ site_status_msg = get_site_status_msg(course_id)
     </div>
   </header>
 
-  % if settings.PLATFORM_NAME == "Gymnasium STAGING":
-    ${urllib2.urlopen('https://gymnasium.github.io/static-site-content/system_status/staging.html').read()}
-  % else:
-    ${urllib2.urlopen('https://gymnasium.github.io/static-site-content/system_status/production.html').read()}
-  % endif
+  ${gymcms.render('system-status')}
 
 % if course:
 <!--[if lte IE 8]>

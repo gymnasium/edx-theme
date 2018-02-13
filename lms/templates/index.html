@@ -1,11 +1,10 @@
 <%! from django.utils.translation import ugettext as _ %>
 
 <%! from django.core.urlresolvers import reverse %>
-<% import urllib2 %>
 
 <%inherit file="main.html" />
 <%namespace name='static' file='static_content.html'/>
-
+<%namespace name='gymcms' file='./util/gymcms.mako' />
 
 
 <%block name="pagetitle">${_("Home")}</%block>
@@ -36,7 +35,7 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
 
 
 <section class="home">
-  ${urllib2.urlopen('https://gymnasium.github.io/static-site-content/home/hero.html').read()}
+  ${gymcms.render('home/hero')}
 
   <section class="container-fluid subsection">
     <div class="container">
@@ -75,7 +74,7 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
           </header>
 
           <section class="courses row">
-            ${urllib2.urlopen('https://gymnasium.github.io/static-site-content/home/featured-courses.html').read()}
+            ${gymcms.render('home/featured-courses')}
           </section>
         </section>
 

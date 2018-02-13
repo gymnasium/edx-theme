@@ -2,6 +2,7 @@
 <%inherit file="main.html" />
 <%def name="online_help_token()"><% return "learnerdashboard" %></%def>
 <%namespace name='static' file='static_content.html'/>
+<%namespace name="gymcms" file="./util/gymcms.mako" />
 <%!
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
@@ -11,7 +12,6 @@ from third_party_auth import pipeline
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
 from openedx.core.djangolib.js_utils import dump_js_escaped_json, js_escaped_string
 from openedx.core.djangolib.markup import HTML, Text
-import urllib2
 %>
 
 <%
@@ -131,7 +131,7 @@ import urllib2
         <section class="my-courses col-md-9" id="my-courses">
 
           <div class="dashboard-custom-content">
-            ${urllib2.urlopen('https://gymnasium.github.io/static-site-content/dashboard.html').read() | n}
+            ${gymcms.render('dashboard')}
           </div>
 
           <header class="hero">

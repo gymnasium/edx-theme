@@ -1,2 +1,2 @@
-<% import urllib2 %>
-${urllib2.urlopen('https://gymnasium.github.io/static-site-content/static-pages-sidebar-content.html').read()}
+<%namespace name="gymcms" file="../util/gymcms.mako" />
+${gymcms.render('sidebar-generic')}

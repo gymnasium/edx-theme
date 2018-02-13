@@ -1,12 +1,13 @@
 <%inherit file="main.html" />
 <%! from microsite_configuration import microsite %>
 <%namespace name='static' file='static_content.html'/>
+<%namespace name='gymcms' file='./util/gymcms.mako' />
 
 <%! from django.core.urlresolvers import reverse %>
 <%! from django.utils.translation import ugettext as _ %>
 <%! import third_party_auth %>
 <%! from third_party_auth import provider, pipeline %>
-<% import urllib2 %> 
+
 
 <%block name="pagetitle">${_("Log into your {platform_name} Account").format(platform_name=platform_name)}</%block>
 
@@ -244,7 +245,7 @@
 
       </div>
       <div class="col-md-3 additional-information">
-        ${urllib2.urlopen('https://gymnasium.github.io/static-site-content/login-sidebar.html').read()}
+        ${gymcms.render('sidebar-login')}
       </div>
     </div>
   </div>

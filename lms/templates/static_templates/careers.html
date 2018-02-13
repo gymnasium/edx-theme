@@ -1,6 +1,6 @@
 <%! from django.utils.translation import ugettext as _ %>
 <%inherit file="../main.html" />
-<% import urllib2 %>
+<%namespace name="gymcms" file="../util/gymcms.mako" />
 
 <%block name="pagetitle">${_("Career Center")}</%block>
 <div class="container ">
@@ -9,7 +9,7 @@
       <div class="white-panel">
         <div class="row">
           <div class="col-md-9">
-            ${urllib2.urlopen('https://gymnasium.github.io/static-site-content/careers.html').read()}
+            ${gymcms.render('careers')}
           </div>
           <div class="col-md-3">
             <%include file="theme-upcoming-content.html" />

@@ -1,6 +1,6 @@
 <%! from django.utils.translation import ugettext as _ %>
 <%inherit file="../main.html" />
-<% import urllib2 %>
+<%namespace name="gymcms" file="../util/gymcms.mako" />
 
 <%block name="pagetitle">${_("About")}</%block>
 
@@ -28,7 +28,7 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
       <div class="white-panel">
         <div class="row">
           <div class="col-md-9">
-            ${urllib2.urlopen('https://gymnasium.github.io/static-site-content/about.html').read()}
+            ${gymcms.render('about')}
           </div>
 
           <div class="col-md-3">
