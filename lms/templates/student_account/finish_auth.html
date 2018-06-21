@@ -5,14 +5,14 @@
 <%block name="pagetitle">${_("Please Wait")}</%block>
 
 <%block name="headextra">
-<%static:require_module module_name="js/student_account/views/finish_auth_factory" class_name="FinishAuthFactory">
+<%static:require_module module_name="gymnasium/js/student_account/views/finish_auth_factory" class_name="FinishAuthFactory">
     FinishAuthFactory();
 </%static:require_module>
 </%block>
 
 <div class="finish-auth">
     <div class="finish-auth-inner">
-        <h1>${_('Please wait')}</h1>
+        <h1>${_('Hang tight...')}</h1>
 
         <div class="loading-animation"></div>
     </div>

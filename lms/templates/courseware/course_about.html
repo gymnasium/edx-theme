@@ -81,7 +81,7 @@ from edxmako.shortcuts import marketing_link
           }
 
         } else if (xhr.status == 403) {
-            location.href = "${reverse('register_user')}?course_id=${course.id | u}&enrollment_action=enroll";
+            location.href = "${reverse('register_user')}?course_id=${course.id | u}&enrollment_action=enroll&course_num=${course.display_number_with_default}&course_name=${course.display_name_with_default}";
         } else {
           $('#register_error').html(
               (xhr.responseText ? xhr.responseText : "${_("An error occurred. Please try again later.")}")
@@ -141,7 +141,7 @@ from edxmako.shortcuts import marketing_link
           % elif not is_shib_course and not can_enroll:
             <span class="register disabled">${_("Enrollment is Closed")}</span>
           %else:
-            <a href="#" class="gym-button register">
+            <a href="#" class="gym-button register" id="register-enroll">
               <b>${_("Get Started")}</b>
             </a>
             <div id="register_error"></div>
