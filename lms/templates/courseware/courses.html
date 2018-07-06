@@ -3,7 +3,7 @@
   from django.utils.translation import ugettext as _
   from openedx.core.djangolib.js_utils import dump_js_escaped_json
 %>
-<% import urllib2 %>
+<%namespace name="gymcms" file="../util/gymcms.mako" />
 <%inherit file="../main.html" />
 <%
   course_discovery_enabled = settings.FEATURES.get('ENABLE_COURSE_DISCOVERY')
@@ -88,8 +88,8 @@
       <div class="col-md-3 sidebar">
         <%include file='../jobs/find_jobs.html' />
 
-        ## include sidebar content from git repo
-        ${_(urllib2.urlopen('https://gymnasium.github.io/static-site-content/upcoming-courses.html').read())}
+        ## include sidebar content from cms
+        ${gymcms.render('upcoming-courses')}
       </div>
     </div> 
   </main>
