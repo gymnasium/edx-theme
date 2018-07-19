@@ -21,7 +21,7 @@ jobs:
           command: sudo pip install pipenv && pipenv install
       - run: 
           name: Deploy to staging
-          command: deactivate && ~/edx-theme/deploy/deploy_staging.sh
+          command: source deactivate && ~/edx-theme/deploy/deploy_staging.sh
           no_output_timeout: 30m
 
 workflows:
