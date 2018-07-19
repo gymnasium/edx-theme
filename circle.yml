@@ -12,7 +12,12 @@ jobs:
     working_directory: ~/edx-theme
     docker: 
       - image: circleci/python:2.7
+      environment:
+          PIPENV_VENV_IN_PROJECT: true
     steps:
+      - run:
+          name: Install pipenv
+          command: sudo pip install pipenv && pipenv install
       - run: 
           name: Deploy to staging
           command: deactivate && ~/edx-theme/deploy/deploy_staging.sh
