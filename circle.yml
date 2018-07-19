@@ -12,12 +12,26 @@ jobs:
     working_directory: ~/edx-theme
     docker: 
       - image: circleci/python:2.7
-    branches:
-      only: 
-        - develop
-        - /feature.*/
     steps:
       - run: 
           name: Deploy to staging
           command: deactivate && ~/edx-theme/deploy/deploy_staging.sh
           no_output_timeout: 30m
+
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy
+          # build has to be completed first
+          requires:
+            - build
+
+          # only run this job on the develop branch
+          filters:
+            branches:
+              only:
+                - develop
+                - /feature.*/
