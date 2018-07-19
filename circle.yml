@@ -12,7 +12,7 @@ jobs:
     working_directory: ~/edx-theme
     docker: 
       - image: circleci/python:2.7
-      environment:
+        environment:
           PIPENV_VENV_IN_PROJECT: true
     steps:
       - run:
