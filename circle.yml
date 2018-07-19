@@ -18,13 +18,12 @@ jobs:
           command: deactivate && ~/edx-theme/deploy/deploy_staging.sh
           no_output_timeout: 30m
 
-
 workflows:
   version: 2
   build-and-deploy:
     jobs:
       - build
-      - deploy
+      - deploy:
           # build has to be completed first
           requires:
             - build
