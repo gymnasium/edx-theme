@@ -10,13 +10,13 @@
   - roles/supervisor/defaults/main.yml
   - roles/edxapp/defaults/main.yml
   vars:
-    tmp: none
+    THEME_BRANCH: "develop"
   tasks:        
     - name: checkout comprehensive theme
       git_2_0_1:
         dest: "/edx/app/edxapp/themes/gymnasium"
         repo: "https://github.com/gymnasium/edx-theme"
-        version: "develop"
+        version: "{{ THEME_BRANCH }}"
         accept_hostkey: yes 
       become_user: "{{ edxapp_user }}"
       register: edxapp_theme_checkout
