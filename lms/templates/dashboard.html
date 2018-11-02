@@ -116,142 +116,123 @@ from openedx.core.djangolib.markup import HTML, Text
 <div class="course-title container-fluid">
   <header class="container">
     <div class="row">
-      <h1>Dashboard</h1>
+      <h1 class="col-md-12">Dashboard</h1>
     </div>
   </header>
 </div>
 
 
 <main id="main" aria-label="Content" tabindex="-1" class="content-wrapper">
-    <section class="container course-content" id="dashboard-main">
+  <div class="container">
+    <section class="course-content" id="dashboard-main">
       <div class="row">
-        <section class="my-courses col-md-9" id="my-courses">
+        <div class="col-md-9">
+          <section class="my-courses" id="my-courses">
 
-          <div class="dashboard-custom-content">
-            ${gymcms.render('dashboard')}
-          </div>
-
-          <header class="hero">
-            <h1>${_("My Courses")}</h1>
-          </header>
-
-          <%doc>
-            # NOTE TO SELF: implement dashboard search later
-            % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
-              <div id="dashboard-search-bar" class="search-bar" role="search" aria-label="Dashboard">
-                <form>
-                  <div class="search-field-wrapper">
-                    <input id="dashboard-search-input" type="text" class="search-field"/>
-                    <button type="submit" class="search-button" title="${_('Search')}">
-                      <span class="icon fa fa-search" aria-hidden="true"></span>
-                    </button>
-                    <button type="button" class="cancel-button" title="${_('Clear search')}">
-                      <span class="icon fa fa-remove" aria-hidden="true"></span>
-                    </button>
-                  </div>
-                </form>
-              </div>
-            % endif
-
-            % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
-              <section id="dashboard-search-results" class="search-results dashboard-search-results"></section>
-            % endif
-          </%doc>
-
-          % if len(course_enrollments) > 0:
-          <ul class="listing-courses">
-          <% share_settings = getattr(settings, 'SOCIAL_SHARING_SETTINGS', {}) %>
-          % for dashboard_index, enrollment in enumerate(course_enrollments):
-            <% show_courseware_link = (enrollment.course_id in show_courseware_links_for) %>
-            <% cert_status = cert_statuses.get(enrollment.course_id) %>
-            <% can_unenroll = (not cert_status) or cert_status.get('can_unenroll') %>
-            <% credit_status = credit_statuses.get(enrollment.course_id) %>
-            <% show_email_settings = (enrollment.course_id in show_email_settings_for) %>
-            <% course_mode_info = all_course_modes.get(enrollment.course_id) %>
-            <% show_refund_option = (enrollment.course_id in show_refund_option_for) %>
-            <% is_paid_course = (enrollment.course_id in enrolled_courses_either_paid) %>
-            <% is_course_blocked = (enrollment.course_id in block_courses) %>
-            <% course_verification_status = verification_status_by_course.get(enrollment.course_id, {}) %>
-            <% course_requirements = courses_requirements_not_met.get(enrollment.course_id) %>
-            <% course_program_info = course_programs.get(unicode(enrollment.course_id)) %>
-            <%include file = 'dashboard/_dashboard_course_listing.html' args="course_overview=enrollment.course_overview, enrollment=enrollment, show_courseware_link=show_courseware_link, cert_status=cert_status, can_unenroll=can_unenroll, credit_status=credit_status, show_email_settings=show_email_settings, course_mode_info=course_mode_info, show_refund_option=show_refund_option, is_paid_course=is_paid_course, is_course_blocked=is_course_blocked, verification_status=course_verification_status, course_requirements=course_requirements, dashboard_index=dashboard_index, share_settings=share_settings, user=user, course_program_info=course_program_info" />
-          % endfor
-
-            </ul>
-          % else:
-            <section class="empty-dashboard-messages row">
-              <div class="col-md-12">
-                <p>${_("You are not enrolled in any courses yet.")}</p>
-              </div>
-
-              % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-              <div class="col-md-4 col-md-offset-4"> 
-                <a class="gym-button natural" href="${marketing_link('COURSES')}">
-                  <b>${_("Explore courses")}</b>
-                </a>
-              </div>
-              %endif
-            </section>
-          % endif
-
-          % if staff_access and len(errored_courses) > 0:
-            <div id="course-errors">
-              <h2>${_("Course-loading errors")}</h2>
-
-            % for course_dir, errors in errored_courses.items():
-               <h3>${course_dir}</h3>
-                   <ul>
-                 % for (msg, err) in errors:
-                     <li>${msg}
-                       <ul><li><pre>${err}</pre></li></ul>
-                     </li>
-                 % endfor
-                   </ul>
-            % endfor
+            <div class="dashboard-custom-content">
+              ${gymcms.render('dashboard')}
             </div>
-          % endif
-        </section>
 
-        <aside class="profile-sidebar col-md-3">
-          <h2>Account Details</h2>
-          <header class="profile">
-            <h1 class="user-name break-word">${ user.username }</h1>
-          </header>
-          <section class="user-info">
-            <ul>
-              <li class="info--username">
-                  <span class="title">${_("Full Name")}</span>
-                  <span class="data break-word">${ user.profile.name | h }</span>
-              </li>
+            <header class="hero">
+              <h1>${_("My Courses")}</h1>
+            </header>
 
-              <li class="info--email">
-                  <span class="title">
-                    ${_("Email")}
-                  </span>
-                  <span class="data break-word">
-                    ${ user.email | h }
-                  </span>
-              </li>
+            % if len(course_enrollments) > 0:
+            <ul class="listing-courses">
+            <% share_settings = getattr(settings, 'SOCIAL_SHARING_SETTINGS', {}) %>
+            % for dashboard_index, enrollment in enumerate(course_enrollments):
+              <% show_courseware_link = (enrollment.course_id in show_courseware_links_for) %>
+              <% cert_status = cert_statuses.get(enrollment.course_id) %>
+              <% can_unenroll = (not cert_status) or cert_status.get('can_unenroll') %>
+              <% credit_status = credit_statuses.get(enrollment.course_id) %>
+              <% show_email_settings = (enrollment.course_id in show_email_settings_for) %>
+              <% course_mode_info = all_course_modes.get(enrollment.course_id) %>
+              <% show_refund_option = (enrollment.course_id in show_refund_option_for) %>
+              <% is_paid_course = (enrollment.course_id in enrolled_courses_either_paid) %>
+              <% is_course_blocked = (enrollment.course_id in block_courses) %>
+              <% course_verification_status = verification_status_by_course.get(enrollment.course_id, {}) %>
+              <% course_requirements = courses_requirements_not_met.get(enrollment.course_id) %>
+              <% course_program_info = course_programs.get(unicode(enrollment.course_id)) %>
+              <%include file = 'dashboard/_dashboard_course_listing.html' args="course_overview=enrollment.course_overview, enrollment=enrollment, show_courseware_link=show_courseware_link, cert_status=cert_status, can_unenroll=can_unenroll, credit_status=credit_status, show_email_settings=show_email_settings, course_mode_info=course_mode_info, show_refund_option=show_refund_option, is_paid_course=is_paid_course, is_course_blocked=is_course_blocked, verification_status=course_verification_status, course_requirements=course_requirements, dashboard_index=dashboard_index, share_settings=share_settings, user=user, course_program_info=course_program_info" />
+            % endfor
 
-              <li>
-                <span><br /></span>
-              </li>
+              </ul>
+            % else:
+              <section class="empty-dashboard-messages row">
+                <div class="col-md-12">
+                  <p>${_("You are not enrolled in any courses yet.")}</p>
+                </div>
 
-              <li class="controls--account">
-                <span>
-                  Visit
-                  <a href="/account/settings">Account Settings</a>
-                  to update your profile or change your password.
-                </span>
-              </li>
-              <%include file='dashboard/_dashboard_status_verification.html' />
+                % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+                <div class="col-md-4 col-md-offset-4"> 
+                  <a class="gym-button natural" href="${marketing_link('COURSES')}">
+                    <b>${_("Explore courses")}</b>
+                  </a>
+                </div>
+                %endif
+              </section>
+            % endif
 
-            </ul>
+            % if staff_access and len(errored_courses) > 0:
+              <div id="course-errors">
+                <h2>${_("Course-loading errors")}</h2>
+
+              % for course_dir, errors in errored_courses.items():
+                <h3>${course_dir}</h3>
+                    <ul>
+                  % for (msg, err) in errors:
+                      <li>${msg}
+                        <ul><li><pre>${err}</pre></li></ul>
+                      </li>
+                  % endfor
+                    </ul>
+              % endfor
+              </div>
+            % endif
           </section>
-        </aside>
+        </div>
+        <div class="col-md-3">
+          <aside class="profile-sidebar">
+            <h2>Account Details</h2>
+            <header class="profile">
+              <h1 class="user-name break-word">${ user.username }</h1>
+            </header>
+            <section class="user-info">
+              <ul>
+                <li class="info--username">
+                    <span class="title">${_("Full Name")}</span>
+                    <span class="data break-word">${ user.profile.name | h }</span>
+                </li>
+
+                <li class="info--email">
+                    <span class="title">
+                      ${_("Email")}
+                    </span>
+                    <span class="data break-word">
+                      ${ user.email | h }
+                    </span>
+                </li>
+
+                <li>
+                  <span><br /></span>
+                </li>
+
+                <li class="controls--account">
+                  <span>
+                    Visit
+                    <a href="/account/settings">Account Settings</a>
+                    to update your profile or change your password.
+                  </span>
+                </li>
+                <%include file='dashboard/_dashboard_status_verification.html' />
+
+              </ul>
+            </section>
+          </aside>
+        </div>
       </div>
     </section>
-
+  </div>
 </main>
 
 <section id="email-settings-modal" class="modal" aria-hidden="true">

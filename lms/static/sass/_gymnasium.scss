@@ -1346,3 +1346,7 @@ div.form-field input.error {
   border: 2px solid #d43f3a;
 }
 
+/* fix for course image size from gymcms */
+main.course .hero-banner img {
+	max-width: 100%;
+}

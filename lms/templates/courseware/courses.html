@@ -60,12 +60,7 @@
       <div class="col-md-9 course-overview">
         <section class="courses-container">
 
-          <h1 id="full">
-            Full Courses
-          </h1>
-          <p class="hero">
-            All our Full Courses are taught by experienced practitioners and focused on in-demand skills and technologies. Each includes 3 to 6 hours of video instruction, quizzes, assignments, a final exam, and certification when you pass!
-          </p>
+          ${gymcms.render('courses/full-courses-description')}
           
           <ul class="listing-courses">
             <!-- course card underscore template is loaded here if course_discovery is set to true-->
@@ -76,10 +71,7 @@
             %endfor
           </ul>
 
-          <h1 id="gymshorts">Gym Shorts</h1>
-          <p class="hero">
-            Gym Shorts are short courses that all last under an hour. Like our Full Courses, they are taught by industry experts and focus on current skills and technologies. Each includes approximately one hour of video instruction, a final exam, and a badge (if and) when you pass.
-          </p>
+          ${gymcms.render('courses/gym-shorts-description')}
           <ul class="listing-courses" id="gym-shorts-list">
 
           </ul>

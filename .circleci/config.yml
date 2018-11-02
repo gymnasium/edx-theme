@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build: 
+    working_directory: ~/edx-theme
+    docker: 
+      - image: circleci/python:2.7
+    branches:
+      only: 
+        - develop
+        - /feature.*/
+    steps: 
+      - checkout
+      - run: echo '[edxapp-server]' > ~/inventory
+      - run: echo $STAGING_SERVER >> ~/inventory
+      - run: 
+          name: Deploy to staging
+          command: ~/edx-theme/deploy/deploy_staging.sh
+          no_output_timeout: 30m
+

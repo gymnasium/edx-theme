@@ -36,7 +36,7 @@ include_special_exams = settings.FEATURES.get('ENABLE_SPECIAL_EXAMS', False) and
     <img src="${course_image_url(course, 'course_image')}" hidden class="hidden" id="course-image" />
     <div class="container">
         <div class="row">
-        <h1><span class="provider">${course.display_name_with_default}</span></h1>
+        <h1 class="col-md-12"><span class="provider">${course.display_name_with_default}</span></h1>
         <div class="hidden" style="display:none" id="__course_number__">${course.display_number_with_default}</div>
         </div>
     </div>
@@ -98,7 +98,11 @@ include_special_exams = settings.FEATURES.get('ENABLE_SPECIAL_EXAMS', False) and
 
   <div class="container">
     <div class="row">
-        <nav class="${active_page} wrapper-course-material col-md-12" aria-label="${_('Course Material')}">
+        <nav
+            class="${active_page} wrapper-course-material col-md-12"
+            aria-label="${_('Course Material')}"
+            style="margin: 0 15px"
+        >
             <div class="course-material">
                 <%
                 tab_list = get_course_tab_list(request, course)
