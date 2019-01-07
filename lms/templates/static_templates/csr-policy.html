@@ -1,0 +1,14 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+<%namespace name="gymcms" file="../util/gymcms.mako" />
+
+<%block name="pagetitle">${_("Corporate Social Responsibility")}</%block>
+<div class="container ">
+	<div class="row">
+		<div class="col-md-12 ">
+      <div class="white-panel">
+        ${gymcms.render('csr-policy')}
+      </div>
+    </div>
+  </div>
+</div>
