@@ -1,0 +1,35 @@
+% if settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']:
+    <%
+      market = None
+      if user.is_authenticated():
+        # grab market from user profile
+        market = user.profile.market
+      endif
+    %>
+  
+  <iframe src="${settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}table/${market}"
+    id="jobs-microservice-frame"
+    class="gymnasium-resizable-iframe gymnasium-jobs-microservice-iframe"
+    style="width: 1px;min-width: 100%;border:0;"
+  ></iframe>
+  
+  % if not user.is_authenticated():
+    <script>
+      if (navigator.geolocation) {
+        // Geolocation is enabled - use this to get location
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            if (latitude && longitude) {
+              const baseUrl = "${settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}table";
+              const microserviceUrl = baseUrl + "/" + latitude + "/" + longitude;
+
+              $('.gymnasium-jobs-microservice-iframe').attr('src', microserviceUrl);
+            }
+          },
+        );
+      }
+    </script>
+  % endif
+% endif
