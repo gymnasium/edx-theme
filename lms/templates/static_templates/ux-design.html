@@ -4,6 +4,17 @@
 
 <%block name="pagetitle">${_("UX Design")}</%block>
 
+<%block name="headextra">
+  ## OG (Open Graph) title and description added below to give social media info to display
+  ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@AquentGymnasium">
+  <meta name="twitter:url" property="og:url" content="https://thegymnasium.com/ux-design">
+  <meta name="twitter:title" property="og:title" content="UX Design Collection">
+  <meta name="twitter:image" property="og:image" content="https://thegymcms.com/img/social/collections/ux-design-social.png">
+  <meta name="twitter:description" property="og:description" content="Experience endless learning opportunities with our free collection of UX courses, webinars, articles, and jobs.">
+</%block>
+
 <div class="container">
 	<div class="row">
     <div class="col-md-12">
@@ -12,7 +23,7 @@
   </div>
 
   <br /><br />
-  <section>
+  <section id="jobs">
     <div class="section-content">
       <div class="row">
         <div class="col-md-12">
