@@ -3,7 +3,7 @@
   from django.utils.translation import ugettext as _
   from openedx.core.djangolib.js_utils import dump_js_escaped_json
 %>
-<%namespace name="gymcms" file="../util/gymcms.mako" />
+<%namespace name="gymcms" file="../util/gymcms.mako" /> 
 <%inherit file="../main.html" />
 <%
   course_discovery_enabled = settings.FEATURES.get('ENABLE_COURSE_DISCOVERY')
@@ -50,6 +50,7 @@
         <li>
           <a href="#gymshorts">Gym Shorts</a>
         </li>
+        ${gymcms.render('take5/take5-nav')}
       </ul>
     </div>
   </div>
@@ -75,6 +76,8 @@
           <ul class="listing-courses" id="gym-shorts-list">
 
           </ul>
+
+          ${gymcms.render('take5-catalog-module')}
         </section>
       </div>
       <div class="col-md-3 sidebar">
