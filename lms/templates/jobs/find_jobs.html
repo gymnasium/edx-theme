@@ -23,8 +23,7 @@
             const longitude = position.coords.longitude;
             if (latitude && longitude) {
               const baseUrl = "${settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}";
-              const microserviceUrl = baseUrl + "/" + latitude + "/" + longitude;
-
+              const microserviceUrl = baseUrl + "home/" + latitude + "/" + longitude;
               $('.gymnasium-jobs-microservice-iframe').attr('src', microserviceUrl);
             }
           },
