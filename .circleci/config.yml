@@ -8,6 +8,7 @@ jobs:
       only: 
         - develop
         - /feature.*/
+        - /bug.*/
     steps: 
       - checkout
       - run: echo '[edxapp-server]' > ~/inventory
