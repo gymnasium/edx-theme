@@ -24,7 +24,6 @@
             if (latitude && longitude) {
               const baseUrl = "${settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}";
               const microserviceUrl = baseUrl + "home/" + latitude + "/" + longitude;
-
               $('.gymnasium-jobs-microservice-iframe').attr('src', microserviceUrl);
             }
           },
