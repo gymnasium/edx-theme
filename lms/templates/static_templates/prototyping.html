@@ -1,0 +1,47 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+<%namespace name="gymcms" file="../util/gymcms.mako" />
+
+<%block name="pagetitle">${_("Prototyping")}</%block>
+
+<%block name="headextra">
+  ## OG (Open Graph) title and description added below to give social media info to display
+  ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@AquentGymnasium">
+  <meta name="twitter:url" property="og:url" content="https://thegymnasium.com/prototyping">
+  <meta name="twitter:title" property="og:title" content="Prototyping">
+  <meta name="twitter:image" property="og:image" content="https://thegymcms.com/img/social/collections/prototyping-social.png">
+  <meta name="twitter:description" property="og:description" content="Experience endless learning opportunities with our free collection of Prototyping courses, webinars, articles, and jobs.">
+</%block>
+
+<div class="container">
+	<div class="row">
+    <div class="col-md-12">
+      ${gymcms.render('prototyping-top')}
+    </div>
+  </div>
+
+  <br /><br />
+  <section id="jobs">
+    <div class="section-content">
+      <div class="row">
+        <div class="col-md-12">
+          <header>
+            <h2 class="all-caps">Prototyping</h2>
+            <hr />
+          </header>
+        </div>
+        <div class="col-md-12">
+          <%include file='../jobs/job_table.html' />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="row">
+    <div class="col-md-12">
+      ${gymcms.render('prototyping-bottom')}
+    </div>
+	</div>
+</div>
