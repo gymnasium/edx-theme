@@ -7,9 +7,9 @@
     # based on which environment we're in
     if templateUrl:
       if settings.APPSEMBLER_FEATURES.get('ENVIRONMENT', 'staging') == "staging":
-        fullUrl = 'https://staging.gymcms.xyz/static/' + templateUrl
+        fullUrl = 'https://staging.thegymcms.com/static/' + templateUrl
       elif settings.APPSEMBLER_FEATURES.get('ENVIRONMENT', '') == "production":
-        fullUrl = 'https://gymcms.xyz/static/' + templateUrl
+        fullUrl = 'https://thegymcms.com/static/' + templateUrl
 
       # provided the last step worked, use a try block to pull that data from the web
       # render a hidden div if it fails, so it doesn't crash the rest of the page.
