@@ -1300,7 +1300,11 @@ div.status,
 
   .message-copy {
     color: #fff!important;  
-  }
+	}
+
+	div.status p.message-copy {
+		color: #222222 !important;
+	}
 
   a {
     color: white !important;
