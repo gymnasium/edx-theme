@@ -1,0 +1,17 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+<%namespace name="gymcms" file="../util/gymcms.mako" />
+
+<%block name="pagetitle">${_("Designing for Real People: Making the Case for Meaningful UX")}</%block>
+
+<%block name="headextra">
+  ${gymcms.render('webinars/meta/designing-for-real-people')}
+</%block>
+
+<div class="container">
+	<div class="row">
+    <div class="col-md-12">
+      ${gymcms.render('webinars/designing-for-real-people')}
+    </div>
+  </div>
+</div>
