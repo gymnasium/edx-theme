@@ -2,21 +2,40 @@
 <%inherit file="../main.html" />
 <%namespace name="gymcms" file="../util/gymcms.mako" />
 
-<%block name="pagetitle">${_("Jobs")}</%block>
-<div class="container ">
-	<div class="row">
-		<div class="col-md-12 ">
-      <div class="white-panel">
-        <div class="row">
-          <div class="col-md-9">
-            ## include jobs page from git repo
-            ${gymcms.render('jobs')}
-          </div>
+<%block name="pagetitle">Jobs</%block>
 
-          <div class="col-md-3">
-          </div>
+
+<%block name="headextra">
+  ${gymcms.render('jobs/meta/jobs-meta/')}
+</%block>
+
+<div class="container">
+	<div class="row">
+    <div class="col-md-12">
+      ${gymcms.render('jobs-top')}
+    </div>
+  </div>
+
+  <br /><br />
+  <section id="remote-work">
+    <div class="section-content">
+      <div class="row">
+        <div class="col-md-12">
+          <header>
+            <h2 class="all-caps">Remote-first Jobs</h2>
+            <hr />
+          </header>
+        </div>
+        <div class="col-md-12">
+          <%include file='../jobs/job_table.html' />
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <div class="row">
+    <div class="col-md-12">
+      ${gymcms.render('jobs-bottom')}
+    </div>
+	</div>
 </div>
