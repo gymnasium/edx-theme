@@ -1,0 +1,17 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../../main.html" />
+<%namespace name="gymcms" file="../../util/gymcms.mako" />
+
+<%block name="pagetitle">${_("Flexible and Accessible Typesetting")}</%block>
+
+<%block name="headextra">
+	${gymcms.render('take5/meta/gym-5034-meta')}
+</%block>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 ">
+      ${gymcms.render('take5/GYM-5034')}
+		</div>
+	</div>
+</div>
