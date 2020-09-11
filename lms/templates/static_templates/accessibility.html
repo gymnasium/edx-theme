@@ -1,0 +1,37 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+<%namespace name="gymcms" file="../util/gymcms.mako" />
+
+<%block name="pagetitle">${_("Accessibility")}</%block>
+
+<%block name="headextra">
+  ${gymcms.render('/hub-pages/meta/accessibility-collection-meta')}
+</%block>
+
+<div class="container">
+	<div class="row">
+    <div class="col-md-12">
+      ${gymcms.render('accessibility-top')}
+    </div>
+  </div>
+
+  <br /><br />
+  <section id="jobs">
+    <div class="section-content">
+      <div class="row">
+        <div class="col-md-12">
+          <header>
+            <h2 class="all-caps">Accessibility</h2>
+            <hr />
+          </header>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="row">
+    <div class="col-md-12">
+      ${gymcms.render('accessibility-bottom')}
+    </div>
+	</div>
+</div>
