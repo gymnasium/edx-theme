@@ -1,3 +1,6 @@
+# Note: This repo has been archived.
+
+
 Overview
 ========
 This directory stores a default theme for an Open edX instance.
