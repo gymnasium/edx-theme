@@ -1,4 +1,5 @@
 # Note: This repo has been archived.
+This repository has been superseded by https://github.com/gymnasium/openedx-theme
 
 
 Overview
